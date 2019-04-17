@@ -1,0 +1,190 @@
+﻿body {
+    padding-top: 90px;
+    padding-bottom: 20px;
+    font-size: 17px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+span.field-validation-error {
+    font-weight: bold;
+    color: red;
+}
+
+.voffset {
+    margin-top: 2px;
+}
+
+.voffset1 {
+    margin-top: 5px;
+}
+
+.voffset2 {
+    margin-top: 10px;
+}
+
+.voffset3 {
+    margin-top: 20px;
+}
+
+.voffset4 {
+    margin-top: 40px;
+}
+
+.voffset5 {
+    margin-top: 80px;
+}
+
+/* Bootstrap Overrides*/
+.popover {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.navbar-inverse {
+    background-color: #3c78d8;
+    border-color: #3c78d8;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff
+}
+
+.navbar-inverse .navbar-brand {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.navbar-inverse .notifications {
+    position: relative;
+}
+
+.navbar-inverse .notifications .badge{
+    position: absolute;
+    top:8px;
+    right:0;
+    background: #a80a0a;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #3469bd !important;
+}
+
+body, .tooltip, .popover {
+    font-family: "Raleway", "PT Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    font-size: 17px;
+    height: 44px;
+    -ms-border-radius: 9px;
+    border-radius: 9px;
+}
+
+.btn {
+    -ms-border-radius: 9px;
+    border-radius: 9px;
+}
+
+/* Page level styles */
+.activities {
+    list-style: none;
+}
+.activities > li {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.activities > li .date {
+    background: red;
+    color: white;
+    text-align: center;
+    width: 60px;
+    -ms-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.activities > li .date .month {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 6px;
+}
+
+.activities > li .date .day {
+    background: #f7f7f7;
+    color: #333;
+    font-size: 20px;
+    padding: 6px 12px;
+}
+
+.activities > li .details {
+    position: absolute;
+    top: 0;
+    left: 70px;
+}
+
+.activities > li .details .description{
+    font-weight: bold;
+}
+
+.activities > li .details .teacher, .activities > li .details .location, .activities > li .details .category{
+    font-size: 14px;
+}
+
+.js-toggle-attendance {
+    margin-left: 10px;
+}
+
+.activities > li .actions {
+    font-size: 15px;
+    display: none;
+}
+
+.activities > li:hover .actions {
+    display: block;
+}
+
+.popover-notifications .popover-content {
+    padding: 0;
+}
+.popover-notifications ul.notifications {
+    list-style: none;
+    padding-left: 0;
+}
+.popover-notifications ul.notifications > li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+.popover-notifications ul.notifications > li:last-child {
+    border-bottom: none;
+}
+.popover-notifications ul.notifications .highlight {
+    font-weight: bold;
+}
+
+#searchActivities {
+    width: 300px;
+}

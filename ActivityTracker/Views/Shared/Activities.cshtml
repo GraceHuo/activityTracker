@@ -1,0 +1,80 @@
+﻿@model ActivityTracker.ViewModels.ActivityViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>@Model.Heading</h1>
+
+@using (Html.BeginForm("Search", "Activities"))
+{
+    <div class="form-group">
+        <div id="searchActivities" class="input-group">
+            @Html.TextBoxFor(m => m.SearchTerm, new { @class = "form-control", placeholder = "Search by Teacher, Category, Description or Location..." })
+            <span type="submit" class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>            
+        </div>
+    </div>
+}
+
+<ul id="activities" class="activities voffset4">
+    @foreach (var activity in Model.UpcommingActivities)
+    {
+        <li>
+            <div class="date">
+                <div class="month">
+                    @activity.DateTime.ToString("MMM")
+                </div>
+                <div class="day">
+                    @activity.DateTime.ToString("d ")
+                </div>
+            </div>
+            <div class="details">
+                <div>
+                    <span class="description">
+                        <a href="@Url.Action("Details", "Activities", new {id = activity.Id})">
+                            @activity.Description
+                        </a>
+                    </span>
+                    @if (Model.ShowActions && !activity.IsCanceled)
+                    {
+                    <button data-activity-id="@activity.Id"
+                            class="btn 
+                            @(Model.Attendances.Contains(activity.Id) ? "btn-info" : "btn-default") 
+                            btn-sm 
+                            pull-right 
+                            js-toggle-attendance">
+                        @(Model.Attendances.Contains(activity.Id) ? "Going" : "Going?")
+                    </button>
+                    }
+                </div>
+            
+                <div class="location">
+                    @activity.Location
+                </div>
+
+                <div class="teacher">
+                    By: @activity.Teacher.Name
+                   
+                    @if (activity.IsCanceled)
+                    {
+                        <span class="label label-warning">Canceled</span>
+                    }
+
+                    </div>
+
+                <div class="category">
+                    @activity.Category.Name
+                </div>
+            </div>
+        </li>
+    }
+</ul>
+
+@section scripts {
+    <script>
+        $(document).ready(function() {
+            ActivitiesController.init("#activities");
+        });
+    </script>
+}

@@ -1,0 +1,39 @@
+﻿@model ActivityTracker.ViewModels.ActivityDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>
+    @Model.Activity.Teacher.Name
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (Model.IsFollowing)
+        {
+            <button class="btn btn-info js-toggle-follow" data-user-id="@Model.Activity.TeacherId">Following</button>
+        }
+        else
+        {
+            <button class="btn btn-default js-toggle-follow" data-user-id="@Model.Activity.TeacherId">Follow</button>
+        }
+    }
+</h2>
+<p>
+    arranging an @Model.Activity.Category.Name activity (@Model.Activity.Description) at @Model.Activity.Location on @Model.Activity.DateTime.ToString("d MMM") at @Model.Activity.DateTime.ToString("HH:mm")
+</p>
+
+@if (User.Identity.IsAuthenticated && Model.IsAttending)
+{
+    <p>You are going to this activity. </p>
+}
+
+@Scripts.Render("~/bundles/app")
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            ActivityDetailsController.init();
+        });
+    </script>
+}
